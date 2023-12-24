@@ -1,12 +1,7 @@
-import { getServerSession } from "next-auth";
-import React from "react";
-import { authOptions } from "../utils/auth";
-import Navbar from "../components/Navbar";
-
-const DashboardPage = async () => {
+const DashboardPage = () => {
   return (
     <>
-      <Navbar />
+      <h1>Hello From Dashboard</h1>
     </>
   );
 };
