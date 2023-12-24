@@ -45,6 +45,7 @@ const RecentlyAdded = async () => {
                 className="absolute w-full h-full -z-10 rounded-lg object-cover"
               />
               <MovieCard
+                key={movie.id}
                 movieId={movie.id}
                 title={movie.title}
                 overview={movie.overview}
