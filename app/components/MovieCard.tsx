@@ -1,5 +1,9 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Heart, PlayCircle } from "lucide-react";
+import PlayVideoModal from "./PlayVideoModal";
+import { useState } from "react";
 
 interface IMovieCard {
   title: string;
@@ -24,9 +28,11 @@ const MovieCard = ({
   watchListId,
   youtubeUrl,
 }: IMovieCard) => {
+  const [open, setOpen] = useState<boolean>(false);
+
   return (
     <>
-      <button className="-mt-14">
+      <button onClick={() => setOpen(!open)} className="-mt-14">
         <PlayCircle className="h-20 w-20" />
       </button>
       <div className="absolute right-5 top-5 z-10">
@@ -55,6 +61,16 @@ const MovieCard = ({
           {overview}
         </p>
       </div>
+      <PlayVideoModal
+        title={title}
+        overview={overview}
+        youtubeUrl={youtubeUrl}
+        release={release}
+        age={age}
+        duration={duration}
+        state={open}
+        changeState={setOpen}
+      />
     </>
   );
 };
